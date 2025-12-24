@@ -24,9 +24,10 @@ async function updateProducts(
   id: number,
   body: Product
 ) {
-  return await api.put(`/products/${id}`, body);
+  const response = await api.put(`/products/${id}`, body)
+  return response.data
 }
-async function createProducts(body: Product): Promise<any> {
+async function createProducts(body: Product): Promise<Product> {
   return await api.post('/products/add', {
     title: body.title,
     price: body.price,

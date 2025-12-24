@@ -35,7 +35,7 @@ export function CardProducts({
   }
 
   return (
-    <div className="group relative w-full max-w-[320px] bg-gray-100 rounded-[2.5rem] p-5  transition-all duration-300 hover:shadow-2xl hover:shadow-gray-200/60 hover:-translate-y-2 flex flex-col h-full ">
+    <div className="group relative w-full max-w-[320px] bg-gray-100 rounded-[2.5rem] p-5  transition-all duration-300 hover:shadow-2xl hover:shadow-gray-200/60 hover:-translate-y-2 flex flex-col h-full border-b-current ">
       <div className="relative aspect-square w-full overflow-hidden bg-[#f9fafb] rounded-3xl mb-5">
         <img
           src={thumbnail}
@@ -59,7 +59,7 @@ export function CardProducts({
           <button
             onClick={handleDelete}
             disabled={isPending}
-            className="w-10 h-10 flex items-center justify-center bg-white text-red-500 rounded-full shadow-md hover:scale-110 transition-all disabled:opacity-50"
+            className="w-6 h-6 flex items-center justify-center bg-white text-red-500 rounded-full shadow-md hover:scale-110 transition-all disabled:opacity-50"
             title="Borrar"
           >
             {isPending ? (
@@ -102,7 +102,7 @@ export function CardProducts({
       {/* CTA */}
       <Link
         to={`/${id}`}
-        className="w-full h-14 flex items-center justify-center bg-[#607d55] text-white text-sm font-bold rounded-2xl hover:bg-green-800 hover:shadow-lg hover:shadow-blue-200 transition-all active:scale-95"
+        className="w-full h-14 flex items-center justify-center bg-gray-900 text-white text-sm font-bold rounded-2xl"
       >
         Ver detalles del producto
       </Link>
