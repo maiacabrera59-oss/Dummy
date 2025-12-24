@@ -125,7 +125,7 @@ export function Login() {
               Ingresando...
             </>
           ) : (
-            "Iniciar Sesión"
+            "Iniciar "
           )}
         </button>
       </form>
