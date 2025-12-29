@@ -1,4 +1,5 @@
 import { api } from "../lib/api";
+import type { UsersResponse } from "../types/users";
 export interface Product {
   title: string;
   description: string;
@@ -11,7 +12,7 @@ async function getAllCarts() {
 }
 
 async function getAllProducts() {
-  return await api.get(`/products`);
+  return await api.get(`/products?limit=0`);
 }
 async function getProductsDetails(id: number | undefined): Promise<Product> {
   return api.get(`/products/${id}`);
@@ -35,9 +36,10 @@ async function createProducts(body: Product): Promise<Product> {
     thumbnail: body.thumbnail
   });
 }
-async function getAllUsers() {
-  return await api.get('/users');
-
+async function getAllUsers(): Promise<UsersResponse> {
+  const res = await fetch("https://dummyjson.com/users?limit=200");
+  if (!res.ok) throw new Error("Error fetching users");
+  return res.json();
 }
 export {
   getAllCarts,

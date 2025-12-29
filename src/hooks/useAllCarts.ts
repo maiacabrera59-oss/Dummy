@@ -1,9 +1,15 @@
+// hooks/useUserCart.ts
 import { useQuery } from "@tanstack/react-query";
-import {getAllCarts} from "../services"
 
-export function useAllCarts(){
+export function useUserCart(userId: number | undefined) {
     return useQuery({
-    queryKey: ['all-carts'],
-    queryFn: getAllCarts,
-    })
+        queryKey: ['user-cart', userId],
+        queryFn: async () => {
+            if (!userId) return null;
+            const response = await fetch(`https://dummyjson.com/carts/user/${userId}`);
+            if (!response.ok) throw new Error("Error al obtener el carrito");
+            return response.json();
+        },
+        enabled: !!userId, // No hace la petición si no hay ID (seguridad)
+    });
 }

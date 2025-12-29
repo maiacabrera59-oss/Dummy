@@ -53,8 +53,8 @@ export function Form() {
   }
 
   return (
-    <section className="min-h-screen  from-gray-50 to-white py-24 px-6">
-      <div className="max-w-xl mx-auto mt-44">
+    <section className="min-h-screen  from-gray-50 to-white py-24 px-6 ">
+      <div className="max-w-xl mx-auto mt-18 border border-black rounded-2xl">
         <div className="bg-white border border-gray-200 rounded-3xl shadow-xl shadow-gray-200/60 p-10">
           {/* Header */}
           <div className="mb-8">
@@ -74,11 +74,11 @@ export function Form() {
               </label>
               <input
                 {...register("title")}
-                className="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3
+                className="w-full bg-gray-50 border border-black rounded-xl px-4 py-3
                 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
               />
               {errors.title && (
-                <p className="text-xs text-red-500 mt-1">
+                <p className="text-xs font-bold text-red-500 mt-1">
                   {errors.title.message}
                 </p>
               )}
@@ -93,11 +93,11 @@ export function Form() {
                 type="number"
                 step="0.01"
                 {...register("price", { valueAsNumber: true })}
-                className="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3
+                className="w-full bg-gray-50 border border-black rounded-xl px-4 py-3
                 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
               />
               {errors.price && (
-                <p className="text-xs text-red-500 mt-1">
+                <p className="text-xs font-bold text-red-500 mt-1">
                   {errors.price.message}
                 </p>
               )}
@@ -111,11 +111,11 @@ export function Form() {
               <textarea
                 rows={4}
                 {...register("description")}
-                className="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 resize-none
+                className="w-full bg-gray-50 border border-black rounded-xl px-4 py-3 resize-none
                 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
               />
               {errors.description && (
-                <p className="text-xs text-red-500 mt-1">
+                <p className="text-xs font-bold text-red-500 mt-1">
                   {errors.description.message}
                 </p>
               )}
@@ -128,11 +128,11 @@ export function Form() {
               </label>
               <input
                 {...register("thumbnail")}
-                className="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3
+                className="w-full bg-gray-50 border border-black rounded-xl px-4 py-3
                 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
               />
               {errors.thumbnail && (
-                <p className="text-xs text-red-500 mt-1">
+                <p className="text-xs font-bold text-red-500 mt-1">
                   {errors.thumbnail.message}
                 </p>
               )}
