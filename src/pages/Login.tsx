@@ -3,10 +3,12 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-//  validación con Zod
+// Validación con Zod
 const loginSchema = z.object({
   email: z.string().email("El correo electrónico no es válido"),
-  password: z.string().min(6, "La contraseña debe tener al menos 6 caracteres"),
+  password: z
+    .string()
+    .min(6, "La contraseña debe tener al menos 6 caracteres"),
 });
 
 type LoginFormData = z.infer<typeof loginSchema>;
@@ -27,7 +29,6 @@ export function Login() {
     console.log("Enviando datos:", data);
 
     try {
-      
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
       const fakeResponse = {
@@ -35,7 +36,6 @@ export function Login() {
       };
 
       localStorage.setItem("token", fakeResponse.token);
-   
       window.location.href = "/products";
     } catch (error) {
       console.error(error);
@@ -47,28 +47,26 @@ export function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-  <form
-    onSubmit={handleSubmit(onSubmit)}
-    className="w-full max-w-xl min-h-[320px] bg-white p-16 border border-gray-900 shadow-2xl rounded-3xl"
-  >
-    <h3 className="text-4xl font-bold text-center mb-12 text-gray-800">
-      Bienvenid@ a Dummy
-    </h3>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="w-full max-w-xl min-h-[320px] bg-white p-16 border border-gray-900 shadow-2xl rounded-3xl"
+      >
+        <h3 className="text-4xl font-bold text-center mb-12 text-gray-800">
+          Bienvenid@ a Dummy
+        </h3>
 
-
-        {/*  Email */}
-        <div className="mb-5">
+        {/* Email */}
+        <div className="mb-7">
           <input
-  type="email"
-  placeholder="Email"
-  {...register("email")}
-  className={`w-full border rounded-xl px-5 py-4 text-base focus:outline-none focus:ring-2 transition-all
-  ${
-    errors.email
-      ? "border-red-500 focus:ring-red-100"
-      : "border-gray-300 focus:ring-blue-100 focus:border-blue-400"
-  }`}
-/>
+            type="email"
+            placeholder="Email"
+            {...register("email")}
+            className={`w-full border rounded-xl px-5 py-4 text-base focus:outline-none focus:ring-2 transition-all ${
+              errors.email
+                ? "border-red-500 focus:ring-red-100"
+                : "border-gray-300 focus:ring-blue-100 focus:border-blue-400"
+            }`}
+          />
 
           {errors.email && (
             <p className="text-xs text-red-500 mt-1.5 ml-1">
@@ -78,18 +76,17 @@ export function Login() {
         </div>
 
         {/* Password */}
-        <div className="mb-8">
+        <div className="mb-10">
           <input
-  type="password"
-  placeholder="Password"
-  {...register("password")}
-  className={`w-full border rounded-xl px-5 py-4 text-base focus:outline-none focus:ring-2 transition-all
-  ${
-    errors.password
-      ? "border-red-500 focus:ring-red-100"
-      : "border-gray-300 focus:ring-blue-100 focus:border-blue-400"
-  }`}
-/>
+            type="password"
+            placeholder="Password"
+            {...register("password")}
+            className={`w-full border rounded-xl px-5 py-4 text-base focus:outline-none focus:ring-2 transition-all ${
+              errors.password
+                ? "border-red-500 focus:ring-red-100"
+                : "border-gray-300 focus:ring-blue-100 focus:border-blue-400"
+            }`}
+          />
 
           {errors.password && (
             <p className="text-xs text-red-500 mt-1.5 ml-1">
@@ -98,13 +95,12 @@ export function Login() {
           )}
         </div>
 
-        {/* Botón de Acción */}
+        {/* Botón */}
         <button
-  type="submit"
-  disabled={loading}
-  className="w-full bg-gray-900 text-white py-4 rounded-xl font-semibold text-base hover:bg-gray-950 transition-colors disabled:opacity-70 flex justify-center items-center"
->
-
+          type="submit"
+          disabled={loading}
+          className="w-full bg-gray-900 text-white py-4 rounded-xl font-semibold text-base hover:bg-gray-950 transition-colors disabled:opacity-70 flex justify-center items-center"
+        >
           {loading ? (
             <>
               <svg
