@@ -50,7 +50,7 @@ export function CardProducts({
         <div className="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <button
             onClick={onEdit}
-            className="w-10 h-10 flex items-center justify-center bg-white text-gray-700 rounded-full shadow-md hover:text-blue-600 hover:scale-110 transition-all"
+            className="w-8 h-8 flex items-center justify-center bg-white text-gray-700 rounded-full shadow-md hover:text-blue-600 hover:scale-110 transition-all"
             title="Editar"
           >
             <img src={IconLapiz} alt="" />
@@ -59,11 +59,11 @@ export function CardProducts({
           <button
             onClick={handleDelete}
             disabled={isPending}
-            className="w-6 h-6 flex items-center justify-center bg-white text-red-500 rounded-full shadow-md hover:scale-110 transition-all disabled:opacity-50"
+            className="top-3 right-3 flex items-center justify-center bg-white text-red-500 rounded-full shadow-md hover:scale-110 transition-all disabled:opacity-50"
             title="Borrar"
           >
             {isPending ? (
-              <span className="w-4 h-4 border-2 border-red-500 border-t-transparent rounded-full animate-spin" />
+              <span className="w-6 h-6 border-2 border-red-500 border-t-transparent rounded-full animate-spin" />
             ) : (
               <img src={Borrar} alt="Borrar" className="w-6 h-6 opacity-80" />
             )}

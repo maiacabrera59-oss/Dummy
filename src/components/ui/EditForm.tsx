@@ -39,7 +39,7 @@ export function Form({ id, initialData, onClose }: EditFormProps) {
       { id, body },
       {
         onSuccess: () => {
-          toast.success("Producto actualizado correctamente");
+          toast.success("Los cambios se guardaron correctamente");
           onClose();
         },
         onError: () => {
@@ -55,9 +55,6 @@ export function Form({ id, initialData, onClose }: EditFormProps) {
         <h2 className="text-3xl font-bold text-gray-800">
           Editar producto #{id}
         </h2>
-        <p className="text-sm text-gray-500">
-          Actualizá la información del producto
-        </p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -122,7 +119,7 @@ export function Form({ id, initialData, onClose }: EditFormProps) {
           <button
             type="button"
             onClick={onClose}
-            className="flex-1 h-11 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition"
+            className="flex-1 h-11 border border-gray-300 rounded-lg  hover:bg-red-50 transition"
           >
             Cancelar
           </button>
@@ -130,7 +127,7 @@ export function Form({ id, initialData, onClose }: EditFormProps) {
           <button
             type="submit"
             disabled={isPending}
-            className="flex-1 h-11 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition disabled:opacity-50"
+            className="flex-1 h-11 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-900 transition disabled:opacity-50"
           >
             {isPending ? "Editando..." : "Guardar cambios"}
           </button>

@@ -32,7 +32,7 @@ export function Cart() {
                 </span>
 
                 <span className="text-[10px] font-bold text-blue-500 uppercase tracking-widest">
-                  {cart.totalProducts} PRODUCTOS
+                  {cart.totalProducts} productos
                 </span>
               </div>
 
