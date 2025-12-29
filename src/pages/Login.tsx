@@ -46,28 +46,30 @@ export function Login() {
   }
 
   return (
-    <div className="min-h-[90vh] flex items-center justify-center bg-gray-50 px-4">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="w-full max-w-md bg-white p-10 border border-gray-900 shadow-xl rounded-2xl"
-      >
-        <h3 className="text-2xl font-bold text-center mb-8 text-gray-800">
-          Bienvenid@ a Dummy
-        </h3>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+  <form
+    onSubmit={handleSubmit(onSubmit)}
+    className="w-full max-w-xl min-h-[320px] bg-white p-16 border border-gray-900 shadow-2xl rounded-3xl"
+  >
+    <h3 className="text-4xl font-bold text-center mb-12 text-gray-800">
+      Bienvenid@ a Dummy
+    </h3>
+
 
         {/*  Email */}
         <div className="mb-5">
           <input
-            type="email"
-            placeholder="Email"
-            {...register("email")}
-            className={`w-full border rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 transition-all
-            ${
-              errors.email
-                ? "border-red-500 focus:ring-red-100"
-                : "border-gray-300 focus:ring-blue-100 focus:border-blue-400"
-            }`}
-          />
+  type="email"
+  placeholder="Email"
+  {...register("email")}
+  className={`w-full border rounded-xl px-5 py-4 text-base focus:outline-none focus:ring-2 transition-all
+  ${
+    errors.email
+      ? "border-red-500 focus:ring-red-100"
+      : "border-gray-300 focus:ring-blue-100 focus:border-blue-400"
+  }`}
+/>
+
           {errors.email && (
             <p className="text-xs text-red-500 mt-1.5 ml-1">
               {errors.email.message}
@@ -78,16 +80,17 @@ export function Login() {
         {/* Password */}
         <div className="mb-8">
           <input
-            type="password"
-            placeholder="Password"
-            {...register("password")}
-            className={`w-full border rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 transition-all
-            ${
-              errors.password
-                ? "border-red-500 focus:ring-red-100"
-                : "border-gray-300 focus:ring-blue-100 focus:border-blue-400"
-            }`}
-          />
+  type="password"
+  placeholder="Password"
+  {...register("password")}
+  className={`w-full border rounded-xl px-5 py-4 text-base focus:outline-none focus:ring-2 transition-all
+  ${
+    errors.password
+      ? "border-red-500 focus:ring-red-100"
+      : "border-gray-300 focus:ring-blue-100 focus:border-blue-400"
+  }`}
+/>
+
           {errors.password && (
             <p className="text-xs text-red-500 mt-1.5 ml-1">
               {errors.password.message}
@@ -97,10 +100,11 @@ export function Login() {
 
         {/* Botón de Acción */}
         <button
-          type="submit"
-          disabled={loading}
-          className="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-sm hover:bg-gray-950 transition-colors disabled:opacity-70 flex justify-center items-center"
-        >
+  type="submit"
+  disabled={loading}
+  className="w-full bg-gray-900 text-white py-4 rounded-xl font-semibold text-base hover:bg-gray-950 transition-colors disabled:opacity-70 flex justify-center items-center"
+>
+
           {loading ? (
             <>
               <svg
