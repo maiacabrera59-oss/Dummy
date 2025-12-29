@@ -54,7 +54,7 @@ export function Form() {
 
   return (
     <section className="min-h-screen  from-gray-50 to-white py-24 px-6">
-      <div className="max-w-xl mx-auto">
+      <div className="max-w-xl mx-auto mt-44">
         <div className="bg-white border border-gray-200 rounded-3xl shadow-xl shadow-gray-200/60 p-10">
           {/* Header */}
           <div className="mb-8">
@@ -141,7 +141,7 @@ export function Form() {
             <button
               type="submit"
               disabled={isPending}
-              className="w-full h-14 bg-[#607d55] text-white font-bold rounded-xl
+              className="w-full h-14 bg-gray-700   text-white font-bold rounded-xl
               shadow-lg shadow-indigo-600/30 transition-all active:scale-95 disabled:opacity-50"
             >
               {isPending ? "Guardando..." : "Agregar Producto"}

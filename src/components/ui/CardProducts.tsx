@@ -63,7 +63,7 @@ export function CardProducts({
             title="Borrar"
           >
             {isPending ? (
-              <span className="w-6 h-6 border-2 border-red-500 border-t-transparent rounded-full animate-spin" />
+              <span className="w-6 h-4 border-2 border-red-500 border-t-transparent rounded-full animate-spin" />
             ) : (
               <img src={Borrar} alt="Borrar" className="w-6 h-6 opacity-80" />
             )}
@@ -102,7 +102,7 @@ export function CardProducts({
       {/* CTA */}
       <Link
         to={`/${id}`}
-        className="w-full h-14 flex items-center justify-center bg-gray-900 text-white text-sm font-bold rounded-2xl"
+        className="w-full h-14 flex items-center justify-center bg-gray-900 text-white text-sm font-bold rounded-2xl  "
       >
         Ver detalles del producto
       </Link>
