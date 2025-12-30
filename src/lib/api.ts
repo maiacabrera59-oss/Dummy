@@ -1,12 +1,14 @@
-import axios,{type AxiosInstance} from "axios";
+//configuración central de Axios para manejar  peticiones HTTP 
+
+import axios, { type AxiosInstance } from "axios";
 import { API_BASE_URL } from "../config";
-export const api:AxiosInstance=axios.create({
-    baseURL:API_BASE_URL,
-    headers:{
-        "Content-Type":"application/json"
-    }
+export const api: AxiosInstance = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    "Content-Type": "application/json"
+  }
 })
-// INTERCEPTOR DE REQUEST
+// INTERCEPTOR QUE AGREGA TOKEN A CADA PETICIÓN
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
@@ -22,7 +24,7 @@ api.interceptors.request.use(
   }
 );
 
-// INTERCEPTOR DE RESPONSE
+// INTERCEPTOR  QUE MANEJA RESDPUESTAS Y ERRORES 
 api.interceptors.response.use(
   (response) => {
     console.log(response);
@@ -32,9 +34,6 @@ api.interceptors.response.use(
   (error) => {
     if (error.response?.status === 401) {
       console.log("Token inválido o expirado");
-      // acá después podés explicar:
-      // - logout
-      // - redirect a login
     }
 
     return Promise.reject(error);

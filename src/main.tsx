@@ -10,8 +10,8 @@ import { router } from "./Routes";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}> {/* permite usar usequery/usemutation en cualquier Componente */}
+      <RouterProvider router={router} /> {/* lee rutas definidas en routes */}
     </QueryClientProvider>
   </StrictMode>
 );

@@ -1,17 +1,17 @@
 import { create } from 'zustand';
-
+{/**Es un store global de Zustand que se encarga de guardar el usuario logueado*/ }
 type User = {
   id: number;
   username: string;
-  // Puedes agregar más campos si la API te los da (email, image, etc.)
+
 };
 
 type UserStore = {
   user: User | null; // El usuario puede no existir al principio
-  setUser: (user: User | null) => void; // Función para iniciar o cerrar sesión
+  setUser: (user: User | null) => void; // Función para actualizar el usuario
 };
 
 export const useUserStore = create<UserStore>((set) => ({
-  user: null, // Estado inicial vacío
-  setUser: (newUser) => set({ user: newUser }), // Actualiza el estado con el nuevo usuario
+  user: null,
+  setUser: (newUser) => set({ user: newUser }), // crea store y devuelve hook reutilizable
 }));

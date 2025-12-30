@@ -4,6 +4,7 @@ import { z } from "zod";
 import { toast } from "sonner";
 import { useUpdateProduct } from "../../hooks/useUpdateProducts";
 
+{/*Valido con zod que datos son validos y cuales no*/}
 const productSchema = z.object({
   title: z.string().min(3, "El título debe tener al menos 3 caracteres"),
   price: z.number().min(0.1, "El precio debe ser mayor o igual a 0.1"),
@@ -19,12 +20,13 @@ type ProductFormData = z.infer<typeof productSchema>;
 interface EditFormProps {
   id: number;
   initialData: ProductFormData;
-  onClose: () => void;
+  onClose: () => void; /*función que se ejecuta para cerrar el formulario*/
 }
 
 export function Form({ id, initialData, onClose }: EditFormProps) {
-  const { mutate, isPending } = useUpdateProduct();
+  const { mutate, isPending } = useUpdateProduct(); {/*mutate es la función que dispara la actualización del producto}
 
+  {/* Manejo del formulario: registro de inputs, validación y control de errores */}
   const {
     register,
     handleSubmit,
@@ -34,6 +36,8 @@ export function Form({ id, initialData, onClose }: EditFormProps) {
     defaultValues: initialData,
   });
 
+  /*Esta funcion se ejecuta cuando el usuario envía el formulario
+   llamndo al id de del producto y envia los datos nuevos (body)*/
   function onSubmit(body: ProductFormData) {
     mutate(
       { id, body },
@@ -126,7 +130,7 @@ export function Form({ id, initialData, onClose }: EditFormProps) {
 
           <button
             type="submit"
-            disabled={isPending}
+            disabled={isPending}  /* desabilito el boton mientras se actualiza el producto */
             className="flex-1 h-11 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-900 transition disabled:opacity-50"
           >
             {isPending ? "Editando..." : "Guardar cambios"}

@@ -8,6 +8,7 @@ interface Product {
   description: string;
   thumbnail: string;
 }
+//// Hook de React Query para acciones que modifican datos en la API
 
 export function useCreateProducts() {
   return useMutation({
