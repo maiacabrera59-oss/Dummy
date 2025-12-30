@@ -89,13 +89,14 @@ export function Form() {
               <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
                 Precio
               </label>
-              <input
+             <input
                 type="number"
                 step="0.01"
                 {...register("price", { valueAsNumber: true })}
                 className="w-full bg-gray-50 border border-black rounded-xl px-4 py-3
                 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
               />
+
               {errors.price && (
                 <p className="text-xs font-bold text-red-500 mt-1">
                   {errors.price.message}
