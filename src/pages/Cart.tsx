@@ -46,7 +46,7 @@ export function Cart() {
 
               {/* PRODUCTOS */}
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                // Recorro los productos del carrito y renderizo una card con los datos de cada uno
+                {/* Recorro los productos del carrito y renderizo una card con los datos de cada uno */}
                 {cart.products.map((prod: any) => (
                   <div
                     key={prod.id}
