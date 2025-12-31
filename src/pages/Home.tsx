@@ -3,11 +3,10 @@ import { CardProducts } from "../components/ui/CardProducts";
 import { useAllProducts } from "../hooks/useAllProducts";
 import { Form as EditForm } from "../components/ui/EditForm";
 
-// Interfaz actualizada para coincidir con DummyJSON
 interface Product {
   id: number;
   title: string;
-  thumbnail: string; // La API usa thumbnail
+  thumbnail: string; 
   price: number;
   category: string;
   description: string;
