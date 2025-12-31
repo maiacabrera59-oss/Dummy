@@ -5,7 +5,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useUserStore } from "../store/useUserStore";
 import { useNavigate } from "react-router-dom";
 
-// Validación con Zod
 const loginSchema = z.object({
   username: z.string().min(3, "El usuario es requerido"),
   password: z.string().min(6, "Mínimo 6 caracteres"),
@@ -18,7 +17,7 @@ export function Login() {
   const setUser = useUserStore((state) => state.setUser);
   const navigate = useNavigate();
 
-  // Configuración de React Hook Form
+
   const {
     register,
     handleSubmit,
@@ -28,8 +27,6 @@ export function Login() {
     resolver: zodResolver(loginSchema),
   });
 
-  // Para debug: ver si los inputs registran cambios
-  // console.log(watch());
 
   const onSubmit = async (data: LoginFormData) => {
     setLoading(true);

@@ -3,16 +3,14 @@ import { useUserCart } from "../hooks/useAllCarts";
 import { useState, useEffect } from "react";
 
 export function Cart() {
-  const user = useUserStore((state) => state.user);
-  const [loadingUser, setLoadingUser] = useState(true);
+  const user = useUserStore((state) => state.user);//obtengo el usuario logueado desde el store
+  const [loadingUser, setLoadingUser] = useState(true);// estado para manejar la carga del usuario
   const { data, isPending } = useUserCart(user?.id);
 
-   {/*Esperar a que el user se cargue desde localStorage(espacio de almacenamiento del navegador)*/}
   useEffect(() => {
     setLoadingUser(false);
   }, [user]);
 
- {/*Esta carga se usa para cuando el usuario todavía se está cargando||la API todavía no respondió*/}
   if (loadingUser || isPending) {
     return (
        <section className="h-[70vh] flex flex-col justify-center items-center gap-4">
@@ -23,13 +21,11 @@ export function Cart() {
       </section>
     );
   }
- {/*garantizo que carts siempre sea un array, incluso si data es undefined*/}
   const carts = data?.carts || [];
 
   return (
     <section className="p-20 py-10 bg-gray-50 min-h-screen">
       <div className="flex flex-col gap-12 max-w-6xl mx-auto">
-        {/* Si hay carritos, los mapeo(recorro el array) y los renderizo; si no, muestro un mensaje */}
         {carts.length > 0 ? (
           carts.map((cart: any) => (
             <div
@@ -75,7 +71,7 @@ export function Cart() {
             </div>
           ))
         ) : (
-          <p className="text-gray-500 text-center">No hay carritos disponibles.</p>// mensaje que se muestra si no hay carritos
+          <p className="text-gray-500 text-center">No hay carritos disponibles.</p>
         )}
       </div>
     </section>

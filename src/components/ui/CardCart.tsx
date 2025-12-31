@@ -1,5 +1,5 @@
 
-{/*Tipado de las props, defino qué información necesita la card para renderizarse(mostrarse)*/}
+{/*Tipado de las props, defino qué información necesita la card para renderizarse*/}
 interface CardProps {
   id: number;
   title: string;

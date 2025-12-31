@@ -1,4 +1,4 @@
-//configuración central de Axios para manejar  peticiones HTTP 
+//configuración  de Axios para manejar peticiones
 
 import axios, { type AxiosInstance } from "axios";
 import { API_BASE_URL } from "../config";
@@ -8,7 +8,7 @@ export const api: AxiosInstance = axios.create({
     "Content-Type": "application/json"
   }
 })
-// INTERCEPTOR QUE AGREGA TOKEN A CADA PETICIÓN
+// INTERCEPTOR DE REQUEST
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
@@ -24,7 +24,7 @@ api.interceptors.request.use(
   }
 );
 
-// INTERCEPTOR  QUE MANEJA RESDPUESTAS Y ERRORES 
+// INTERCEPTOR DE RESPONSE
 api.interceptors.response.use(
   (response) => {
     console.log(response);

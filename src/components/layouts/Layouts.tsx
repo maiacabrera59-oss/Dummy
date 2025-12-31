@@ -5,7 +5,7 @@ import Cart from "../../assets/cart.svg";
 export function Layouts() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* notificaciones en la esquina superior derecha*/}
+      {/* notificaciones*/}
       <Toaster position="top-right" richColors />
 
       <header className="p-8 bg-gray-900  text-2xl text-white ">
@@ -57,7 +57,7 @@ export function Layouts() {
           </nav>
         </div>
       </header>
-      {/* Contenedor principal donde se renderizan las vistas hijas según la ruta */}
+      {/* Contenedor donde renderizo las vistas hijas según la ruta */}
       <div className="flex-grow">
         <Outlet />
       </div>

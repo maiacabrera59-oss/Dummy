@@ -4,9 +4,9 @@ import { isAuth } from "../auth/isAuth";
 type Props = {
   children: React.ReactNode;
 };
-// Componente que protege rutas según si el usuario está autenticado
+
 export function ProtectedRoute({ children }: Props) {
-  // Verifico autenticación del usuario ,si el usuario no está autenticado, redirige al login
+  // Verifico autenticación del usuario 
   if (!isAuth()) {
     return <Navigate to="/" replace />;
   }

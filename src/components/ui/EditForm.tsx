@@ -4,7 +4,7 @@ import { z } from "zod";
 import { toast } from "sonner";
 import { useUpdateProduct } from "../../hooks/useUpdateProducts";
 
-{/*Valido con zod que datos son validos y cuales no*/}
+{/*Validación con zod*/}
 const productSchema = z.object({
   title: z.string().min(3, "El título debe tener al menos 3 caracteres"),
   price: z.number().min(0.1, "El precio debe ser mayor o igual a 0.1"),
@@ -20,13 +20,12 @@ type ProductFormData = z.infer<typeof productSchema>;
 interface EditFormProps {
   id: number;
   initialData: ProductFormData;
-  onClose: () => void; /*función que se ejecuta para cerrar el formulario*/
+  onClose: () => void; 
 }
 
 export function Form({ id, initialData, onClose }: EditFormProps) {
-  const { mutate, isPending } = useUpdateProduct(); {/*mutate es la función que dispara la actualización del producto}
+  const { mutate, isPending } = useUpdateProduct(); 
 
-  {/* Manejo del formulario: registro de inputs, validación y control de errores */}
   const {
     register,
     handleSubmit,
@@ -36,8 +35,6 @@ export function Form({ id, initialData, onClose }: EditFormProps) {
     defaultValues: initialData,
   });
 
-  /*Esta funcion se ejecuta cuando el usuario envía el formulario
-   llamndo al id de del producto y envia los datos nuevos (body)*/
   function onSubmit(body: ProductFormData) {
     mutate(
       { id, body },
